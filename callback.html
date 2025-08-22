@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Callback</title>
+</head>
+<body>
+  <h2>Autenticación completada</h2>
+  <p id="result"></p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("result").textContent = "Code: " + params.get("code");
+  </script>
+</body>
+</html>
