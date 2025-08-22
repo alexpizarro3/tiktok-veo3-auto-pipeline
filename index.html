@@ -30,23 +30,25 @@
   </div>
 
   <script>
-    function loginWithTikTok() {
-      const clientKey = "aw5wm83mevnfztsk"; // ← reemplaza
-      const redirectUri = encodeURIComponent("https://alexpizarro3.github.io/tiktok-veo3-auto-pipeline/callback.html");
+  function loginWithTikTok() {
+    const clientKey = "aw5wm83mevnfztsk"; // <-- pega aquí tu Client Key (entre comillas)
+    const redirectUri = encodeURIComponent("https://alexpizarro3.github.io/tiktok-veo3-auto-pipeline/callback.html");
 
-      // Scopes mínimos para el demo de login; para publicación pedirás video.publish en tu app real
-      const scope = encodeURIComponent("user.info.basic");
+    // Scopes de Content Posting (no uses user.info.basic si no añadiste Login Kit)
+    const scope = encodeURIComponent("video.publish,video.upload");
 
-      const url =
-        "https://www.tiktok.com/v2/auth/authorize/?" +
-        "client_key=" + clientKey +
-        "&response_type=code" +
-        "&scope=" + scope +
-        "&redirect_uri=" + redirectUri +
-        "&state=xyz";
+    const url =
+      "https://www.tiktok.com/v2/auth/authorize/?" +
+      "client_key=" + clientKey +
+      "&response_type=code" +
+      "&scope=" + scope +
+      "&redirect_uri=" + redirectUri +
+      "&state=xyz";
 
-      window.location.href = url;
-    }
-  </script>
+    // Para depurar, puedes imprimir la URL completa:
+    console.log("Auth URL:", url);
+    window.location.href = url;
+  }
+</script>
 </body>
 </html>
