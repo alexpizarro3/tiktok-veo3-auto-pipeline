@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TikTok Demo App</title>
+</head>
+<body>
+  <h1>Demo TikTok Integration</h1>
+  <button onclick="loginWithTikTok()">Login con TikTok</button>
+
+  <script>
+    function loginWithTikTok() {
+      // Aquí pones el link al OAuth de TikTok con tu Client Key
+      window.location.href = "https://www.tiktok.com/auth/authorize/"
+        + "?client_key=TU_CLIENT_KEY"
+        + "&scope=user.info.basic"
+        + "&response_type=code"
+        + "&redirect_uri=https://alexpizarro3.github.io/tiktok-veo3-auto-pipeline/callback.html";
+    }
+  </script>
+</body>
+</html>
