@@ -11,18 +11,21 @@
   <a id="loginBtn" href="#">Login with TikTok</a>
 
   <script>
-    const clientKey = "aw5wm83mevnfztsk"; // tu client_key real
-    const redirectUri = "https://alexpizarro3.github.io/tiktok-veo3-auto-pipeline/callback.html";
-    const scope = "user.info.basic,video.upload,video.publish"; 
-    const responseType = "code";
+  function loginWithTikTok() {
+    const clientKey = "aw5wm83mevnfztsk";   // tu client_key
+    const redirectUri = encodeURIComponent("https://alexpizarro3.github.io/tiktok-veo3-auto-pipeline/callback.html");
+    const scope = encodeURIComponent("user.info.basic");  // <— solo Login Kit
+    const url =
+      "https://www.tiktok.com/v2/auth/authorize/?" +
+      "client_key=" + clientKey +
+      "&response_type=code" +
+      "&scope=" + scope +
+      "&redirect_uri=" + redirectUri +
+      "&state=xyz";
+    console.log("Auth URL:", url);
+    window.location.href = url;
+  }
+</script>
 
-    document.getElementById("loginBtn").href =
-      `https://www.tiktok.com/v2/auth/authorize/` +
-      `?client_key=${clientKey}` +
-      `&scope=${encodeURIComponent(scope)}` +
-      `&response_type=${responseType}` +
-      `&redirect_uri=${encodeURIComponent(redirectUri)}` +
-      `&state=demo123`;
-  </script>
 </body>
 </html>
